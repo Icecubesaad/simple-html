@@ -1,283 +1,394 @@
+
+
+
+const Dropdown = () => {
+  const dropdown = document.getElementById("dropdown");
+  dropdown.classList.add("active");
+};
+const DropdownHide = () => {
+  const dropdown = document.getElementById("dropdown");
+  dropdown.classList.remove("active");
+};
+const SideBar = () => {
+  const closebtn = document.getElementById("close-btn");
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.remove("close");
+  sidebar.classList.add("active");
+  closebtn.classList.add("active");
+};
+const CloseSidebar = () => {
+  const closebtn = document.getElementById("close-btn");
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.remove("active");
+  sidebar.classList.add("close");
+  closebtn.classList.remove("active");
+};
 class Header extends HTMLElement {
-    constructor() {
-      super();
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.innerHTML = `
+    <style>
+    @import url("https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Nunito:wght@300;500&family=Roboto+Condensed:wght@700&family=Teko:wght@500&family=Ubuntu:wght@400;500&display=swap");
+
+    .main-header {
+      display: grid;
+      grid-template-columns: 0.5fr 1fr 0.8fr;
+      height: 13vh;
+      width: 100%;
     }
-  
-    connectedCallback() {
-      this.innerHTML = `
-      <style>
-      @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;500&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;500&family=Roboto+Condensed:wght@700&display=swap");
-  
-      .body {
-        height: 15vh;
-        position:"absolute";
-        z-index:999;
-        width: 100%;
-        display: flex;
+    .first-header {
+      display: flex;
+      justify-content: space-between;
+    }
+    .options-header {
+      display: flex;
+      gap: 70px;
+      align-items: center;
+      justify-self: center;
+      width: 100%;
+    }
+    .options-header {
+      display: flex;
+    }
+
+    .options-header a {
+      position: relative;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .options-header a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      bottom: -3px;
+      height: 2px;
+      background-color: black;
+      transition: width 300ms ease;
+    }
+
+    .options-header a:hover::after {
+      width: 100%;
+    }
+
+    .options-header a {
+      font-size: 1.2rem;
+      font-family: "Ubuntu", sans-serif;
+    }
+    .cart-signup-header {
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      width: 100%;
+      align-self: center;
+      gap: 50px;
+    }
+    .profile-header {
+      height: 50px;
+      width: 150px;
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 30px;
+      margin-left: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .profile-img {
+      background-color: red;
+      width: 50px;
+      border-radius: 30px;
+      height: 50px;
+    }
+    .Name-profile {
+      color: black;
+      font-family: "Nunito", sans-serif;
+      margin-left: 10px;
+    }
+    .cart-header button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+    #dropdown {
+      position: absolute;
+      width: 150px;
+      background-color: white;
+
+      height: 0;
+      display: none;
+      overflow: hidden;
+      animation: revealDropdown 500ms;
+    }
+
+    #setting-btn {
+      font-size: 1.2rem;
+      font-family: "Ubuntu", sans-serif;
+      cursor: pointer;
+    }
+    #dropdown.active {
+      position: absolute;
+      width: 150px;
+      background-color: white;
+      height: 0;
+      display: flex;
+      overflow: hidden;
+      animation: revealDropdown 300ms;
+      border: 1px solid black;
+      border-radius: 11px;
+    }
+    @keyframes revealDropdown {
+      0% {
+        height: 0;
       }
-      .left {
-        width: 100%;
-        display: flex;
+      100% {
+        height: 150px;
       }
-      .right {
-        width: 50%;
-        display: flex;
-      }
-      .logo {
-        width: 200px;
-        height: 15vh;
-        margin-right: 20px;
-        display: flex;
-        align-items: center;
-        font-size: 1.3rem;
-      }
-      .options {
-        height: 15vh;
-        display: flex;
-        align-items: center;
-      }
-      .options ul {
-        display: flex;
-        gap: 40px;
-      }
-      .options ul li {
-        position: relative;
-        display: block;
+    }
+
+    #dropdown.active {
+      height: 150px;
+    }
+    .setting-btn {
+      background-color: none;
+      font-size: 1.1rem;
+      font-family: "Nunito", sans-serif;
+    }
+    #dropdown.active ul {
+      list-style: none;
+      padding: 0;
+      padding-left:10px ;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #dropdown.active ul li a{
+        font-family: "Nunito", sans-serif;
+        font-size: 1.1rem;
+        color: black;
         text-decoration: none;
-        font-size: 1.3rem;
-        color: black;
-        transition: 0.5s;
-        font-family: "Nunito", sans-serif;
-        cursor: pointer;
-      }
-      .options ul li a::after {
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 3px;
-        top: 100%;
-        left: 0;
-        background: black;
-        transition: transform 0.5s;
-        transform: scaleX(0);
-        transform-origin: right;
-      }
-      ul li a:hover {
-        color: black;
-      }
-      ul li a:hover::after {
-        transform: scaleX(1);
-        transform-origin: left;
-      }
-      .buttons {
-        width: 64%;
-        display: flex;
-        justify-content: right;
-        align-items: center;
-      }
-      .signin {
+    }
+    .line-dropdown-header{
         width: 100px;
-        height: 50px;
-        color: white;
-        margin-left: 20px;
+        height: 1px;
         background-color: black;
-        border: none;
-        border-radius: 11px;
-      }
-      .signup {
-        width: 100px;
-        height: 50px;
-        color: white;
-        background-color: black;
-        border: none;
-        border-radius: 11px;
-      }
-      .cart-btn {
-        background-color: transparent;
-        border: none;
-      }
-      .order-cart {
+    }
+    .logo-header{
+        font-size: 1.2rem;
+      font-family: "Ubuntu", sans-serif;
+    }
+    .first-header{
         display: flex;
         align-items: center;
-        width: 36%;
-        justify-content: right;
-      }
-      .order button {
-        background-color: transparent;
-        border: none;
-        font-size: 1rem;
-        width: auto;
-        cursor: pointer;
-        font-family: "Nunito", sans-serif;
-      }
-      .order {
-        margin-right: 10px;
-      }
-      .profile {
+        justify-content: space-between;
+        padding-right: 20px;
+    }
+    .line-header{
         height: 50px;
-        width: 150px;
-        background-color: grey;
-        border: 1px solid transparent;
-        border-radius: 30px;
-        margin-left: 20px;
-        display: flex;
-        align-items: center;
-  
+        width: 3px;
+        background-color: black;
+    }
+    .side-btn-header{
+        display: none;
+    }
+    .sidebar{
+        display: none;
+    }
+    #close-btn{
+        display: none;
+    }
+    @media screen and (max-width: 700px) {
+        .main-header{
+            display: flex;
+            align-items: center;
+        }
+        .first-header{
+            width: 50%;
+        }
+        .line-header{
+            display: none;
+        }
+        .options-header{
+            display: none;
+        }
+        .profile-header{
+            display: none;
+        }
+        #setting-btn{
+            display: none;
+        }
+        .cart-header{
+            display: none;
+        }
+        .side-btn-header{
+            display: flex;
+            
+        }
+        .side-btn-header button{
+            height: 50px;
+            background-color: transparent;
+            border: none;
+           
+        }
+        #sidebar{
+            position: absolute;
+            animation: sidebarclose 400ms;
+            width: 70%;
+            height: 100vh;
+        }
+        #sidebar.active{
+            height: 100vh;
+            width: 70%;
+            animation: sidebar 400ms;
+            background-color: red;
+            z-index: 999;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        #sidebar.close{
+            height: 100vh;
+            width: 0px;
+            animation: sidebarclose 400ms;
+            background-color: red;
+            z-index: 999;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        
+        #close-btn.active{
+            display: inline;
+            background-color: transparent;
+            border: none;
+        }
+        #close-btn.active button{
+            display: inline;
+            background-color: transparent;
+            border: none;
+            position: absolute
+            ;
+            right: 0;
+        }
+        @keyframes sidebar {
+            0% {
+        width: 0;
       }
-      .profile-img {
-        background-color: red;
-        width: 50px;
-        border-radius: 30px;
-        height: 50px;
+      100% {
+        width: 70%;
       }
-      .Name-profile {
-        color: white;
-        font-family: "Nunito", sans-serif;
-        margin-left: 10px;
+        }
+        @keyframes sidebarclose {
+            0% {
+        width: 70%;
       }
-  
-      a {
-    text-decoration: none;
-    color: #000000;
-  }
-  
-  a:hover {
-    color: #222222
-  }
-  
-  /* Dropdown */
-  
-  .dropdown {
-    display: inline-block;
-    position: relative;
-  }
-  
-  .dd-button {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #222222;
-    padding: 10px 30px 10px 20px;
-    background-color: #ffffff;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  
-  .dd-button:after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    width: 0; 
-    height: 0; 
-  }
-  
-  .dd-button:focus {
-      transform: rotate(360deg);
-    background-color: transparent;
-  }
-  
-  
-  .dd-input {
-    display: none;
-  }
-  
-  .dd-menu {
-    position: absolute;
-    top: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 0;
-    box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
-    background-color: #ffffff;
-    list-style-type: none;
-  }
-  
-  .dd-input + .dd-menu {
-    display: none;
-  } 
-  
-  .dd-input:checked + .dd-menu {
-    display: block;
-  } 
-  
-  .dd-menu li {
-    padding: 10px 20px;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  
-  .dd-menu li:hover {
-    background-color: #f6f6f6;
-  }
-  
-  .dd-menu li a {
-    display: block;
-    margin: -10px -20px;
-    padding: 10px 20px;
-  }
-  
-  .dd-menu li.divider{
-    padding: 0;
-    border-bottom: 1px solid #cccccc;
-  }
-  
-  
-  
-  
-  
-    </style>
-    <body>
-      <header>
-        <div class="body">
-          <div class="left">
-            <div class="logo">Ittefaq electronics</div>
-            <div class="options">
-              <ul>
-                <li><a>about</a></li>
-                <li><a>Contact</a></li>
-                <li><a>Shop</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="right">
-            <div class="order-cart">
-              <div class="order">
-                <button>orders</button>
-              </div>
-              <button class="cart-btn">
-                <img src="./icons8-cart-50.png" height="40px" width="40px" />
-              </button>
-            </div>
-            <div class="buttons">
-              <label class="dropdown">
-  
-                  <div class="dd-button">
-                    
-  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="30px" height="30px"><path d="M 22.205078 2 A 1.0001 1.0001 0 0 0 21.21875 2.8378906 L 20.246094 8.7929688 C 19.076509 9.1331971 17.961243 9.5922728 16.910156 10.164062 L 11.996094 6.6542969 A 1.0001 1.0001 0 0 0 10.708984 6.7597656 L 6.8183594 10.646484 A 1.0001 1.0001 0 0 0 6.7070312 11.927734 L 10.164062 16.873047 C 9.583454 17.930271 9.1142098 19.051824 8.765625 20.232422 L 2.8359375 21.21875 A 1.0001 1.0001 0 0 0 2.0019531 22.205078 L 2.0019531 27.705078 A 1.0001 1.0001 0 0 0 2.8261719 28.691406 L 8.7597656 29.742188 C 9.1064607 30.920739 9.5727226 32.043065 10.154297 33.101562 L 6.6542969 37.998047 A 1.0001 1.0001 0 0 0 6.7597656 39.285156 L 10.648438 43.175781 A 1.0001 1.0001 0 0 0 11.927734 43.289062 L 16.882812 39.820312 C 17.936999 40.39548 19.054994 40.857928 20.228516 41.201172 L 21.21875 47.164062 A 1.0001 1.0001 0 0 0 22.205078 48 L 27.705078 48 A 1.0001 1.0001 0 0 0 28.691406 47.173828 L 29.751953 41.1875 C 30.920633 40.838997 32.033372 40.369697 33.082031 39.791016 L 38.070312 43.291016 A 1.0001 1.0001 0 0 0 39.351562 43.179688 L 43.240234 39.287109 A 1.0001 1.0001 0 0 0 43.34375 37.996094 L 39.787109 33.058594 C 40.355783 32.014958 40.813915 30.908875 41.154297 29.748047 L 47.171875 28.693359 A 1.0001 1.0001 0 0 0 47.998047 27.707031 L 47.998047 22.207031 A 1.0001 1.0001 0 0 0 47.160156 21.220703 L 41.152344 20.238281 C 40.80968 19.078827 40.350281 17.974723 39.78125 16.931641 L 43.289062 11.933594 A 1.0001 1.0001 0 0 0 43.177734 10.652344 L 39.287109 6.7636719 A 1.0001 1.0001 0 0 0 37.996094 6.6601562 L 33.072266 10.201172 C 32.023186 9.6248101 30.909713 9.1579916 29.738281 8.8125 L 28.691406 2.828125 A 1.0001 1.0001 0 0 0 27.705078 2 L 22.205078 2 z M 23.056641 4 L 26.865234 4 L 27.861328 9.6855469 A 1.0001 1.0001 0 0 0 28.603516 10.484375 C 30.066026 10.848832 31.439607 11.426549 32.693359 12.185547 A 1.0001 1.0001 0 0 0 33.794922 12.142578 L 38.474609 8.7792969 L 41.167969 11.472656 L 37.835938 16.220703 A 1.0001 1.0001 0 0 0 37.796875 17.310547 C 38.548366 18.561471 39.118333 19.926379 39.482422 21.380859 A 1.0001 1.0001 0 0 0 40.291016 22.125 L 45.998047 23.058594 L 45.998047 26.867188 L 40.279297 27.871094 A 1.0001 1.0001 0 0 0 39.482422 28.617188 C 39.122545 30.069817 38.552234 31.434687 37.800781 32.685547 A 1.0001 1.0001 0 0 0 37.845703 33.785156 L 41.224609 38.474609 L 38.53125 41.169922 L 33.791016 37.84375 A 1.0001 1.0001 0 0 0 32.697266 37.808594 C 31.44975 38.567585 30.074755 39.148028 28.617188 39.517578 A 1.0001 1.0001 0 0 0 27.876953 40.3125 L 26.867188 46 L 23.052734 46 L 22.111328 40.337891 A 1.0001 1.0001 0 0 0 21.365234 39.53125 C 19.90185 39.170557 18.522094 38.59371 17.259766 37.835938 A 1.0001 1.0001 0 0 0 16.171875 37.875 L 11.46875 41.169922 L 8.7734375 38.470703 L 12.097656 33.824219 A 1.0001 1.0001 0 0 0 12.138672 32.724609 C 11.372652 31.458855 10.793319 30.079213 10.427734 28.609375 A 1.0001 1.0001 0 0 0 9.6328125 27.867188 L 4.0019531 26.867188 L 4.0019531 23.052734 L 9.6289062 22.117188 A 1.0001 1.0001 0 0 0 10.435547 21.373047 C 10.804273 19.898143 11.383325 18.518729 12.146484 17.255859 A 1.0001 1.0001 0 0 0 12.111328 16.164062 L 8.8261719 11.46875 L 11.523438 8.7734375 L 16.185547 12.105469 A 1.0001 1.0001 0 0 0 17.28125 12.148438 C 18.536908 11.394293 19.919867 10.822081 21.384766 10.462891 A 1.0001 1.0001 0 0 0 22.132812 9.6523438 L 23.056641 4 z M 25 17 C 20.593567 17 17 20.593567 17 25 C 17 29.406433 20.593567 33 25 33 C 29.406433 33 33 29.406433 33 25 C 33 20.593567 29.406433 17 25 17 z M 25 19 C 28.325553 19 31 21.674447 31 25 C 31 28.325553 28.325553 31 25 31 C 21.674447 31 19 28.325553 19 25 C 19 21.674447 21.674447 19 25 19 z"/></svg>
-                  </div>
-                
-                  <input type="checkbox" class="dd-input" id="test">
-                
-                  <ul class="dd-menu">
-                    <li>Action</li>
-                    <li>Another action</li>
-                    <li>Something else here</li>
-                    <li class="divider"></li>
-                    
-                  </ul>
-                  
-                </label>
-              <div class="profile">
-                <div class="profile-img"></div>
-                <div class="Name-profile">ICECUBE</div>
-              </div>
-            </div>
+      100% {
+        width: 0px
+      }
+        }
+}
+
+</style>
+    <header>
+    <div class="main-header">
+      <div class="first-header">
+        <div class="logo-header">IITEFAQ ELECTRONICS</div>
+        <div class="line-header"></div>
+      </div>
+      <div class="options-header">
+        <div><a>about</a></div>
+        <div><a>quote</a></div>
+        <div><a>portal</a></div>
+      </div>
+      <div class="cart-signup-header">
+        <div class="cart-header">
+          <button>
+            <img src="./icons8-cart-48.png" width="40px" height="40px" />
+          </button>
+        </div>
+        <div class="user-setting">
+          <div id="setting-btn" onmouseenter="Dropdown()">options</div>
+          <div id="dropdown" onmouseleave="DropdownHide()">
+            <ul>
+              <li><a href="#">Profile</a></li>
+              <div class="line-dropdown-header"></div>
+              <li><a href="#">Cart</a></li>
+              <div class="line-dropdown-header"></div>
+              <li><a href="#">Logout</a></li>
+            </ul>
           </div>
         </div>
-      `;
-    }
+        <div class="profile-header">
+          <div class="profile-img"></div>
+          <div class="Name-profile">ICECUBE</div>
+        </div>
+      </div>
+      <div class="side-btn-header" >
+        <button onclick="SideBar()">
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="50px" height="50px" viewBox="0 0 397.000000 288.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,288.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M910 2070 c-11 -11 -20 -27 -20 -35 0 -8 9 -24 20 -35 20 -20 33 -20
+993 -20 864 0 975 2 995 16 27 18 29 55 4 77 -17 16 -100 17 -995 17 -964 0
+-977 0 -997 -20z"/>
+<path d="M923 1550 c-30 -12 -38 -46 -19 -75 l16 -25 984 0 c940 0 984 1 999
+18 23 26 21 58 -5 76 -20 14 -130 16 -988 15 -531 0 -975 -4 -987 -9z"/>
+<path d="M904 995 c-15 -23 -15 -27 0 -50 l16 -25 990 0 c968 0 990 0 1000 19
+14 27 13 47 -6 65 -14 14 -118 16 -999 16 l-985 0 -16 -25z"/>
+</g>
+</svg>
+        </button>
+      </div>
+    </div>
+    <div id="sidebar">
+      <div id="close-btn">
+        <button onclick="CloseSidebar()">
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="40px" height="40px" viewBox="0 0 24.000000 24.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,24.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M40 193 c0 -4 14 -22 32 -40 l32 -33 -34 -35 c-44 -45 -30 -59 15
+-15 l35 34 35 -34 c45 -44 59 -30 15 15 l-34 35 34 35 c44 45 30 59 -15 15
+l-35 -34 -33 32 c-32 31 -47 39 -47 25z"/>
+</g>
+</svg>
+        </button>
+      </div>
+    </div>
+      </header>
+      <script>
+      const sidebar = document.getElementById("sidebar")
+const dropdown = document.getElementById("dropdown");
+const closebtn = document.getElementById("close-btn")
+const Dropdown = () => {
+  dropdown.classList.add("active");
+};
+const DropdownHide = () => {
+  dropdown.classList.remove("active");
+};
+const SideBar = ()=>{
+    sidebar.classList.remove('close')
+    sidebar.classList.add('active')
+    closebtn.classList.add('active')
+}
+const CloseSidebar = ()=>{
+    sidebar.classList.remove('active')
+    sidebar.classList.add('close')
+    closebtn.classList.remove('active')
+}
+      </script>
+    `;
   }
-  
-  customElements.define('header-component', Header);
+}
+
+customElements.define("header-component", Header);

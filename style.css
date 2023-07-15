@@ -187,6 +187,7 @@ border-radius: 11px;
     background-color: white;
     border: 1px solid black;
     transition: 0.2s;
+    width: 50%;
 }
 .swiper .swiper-slide.active {
     height: 360px !important;
@@ -234,4 +235,68 @@ border-radius: 11px;
 .swiper .pagination span.swiper-pagination-bullet-active {
     background-color: black;
     transform: scale(1.5);
+}
+@media screen and (max-width:700px) {
+    .about{
+        overflow: hidden;
+    }
+    .main-about{
+        display: flex;
+        flex-direction: column-reverse;
+
+    }
+    .Benefits{
+        display: flex;
+        flex-direction: column-reverse;
+
+    }
+    .High-Quality{
+        display: flex;
+        flex-direction: column-reverse;
+
+    }
+    .Low-cost{
+        display: flex;
+        flex-direction: column;
+
+    }
+    
+    .fast-delivery{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .stats{
+        height: auto;
+display: grid;
+grid-template-columns: repeat(2,1fr);
+grid-template-rows: repeat(3,1fr);
+padding-top: 10px;
+row-gap: 10px;
+padding-bottom: 10px;
+margin-top: 30px;
+column-gap: 20px;
+padding-left: 10px;
+padding-right: 10px;
+    }
+    .Text{
+        font-size: 1rem;
+        margin-left: 10px;
+        min-width: 100%;
+    }
+    .stats-card{
+        min-width: none;
+        width: 100%;
+        max-width: none;
+        height: 100px;
+    }
+    .pic-main{
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .swiper-slide{
+        overflow: hidden;
+        width: 181px;
+    }
 }

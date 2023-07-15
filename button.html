@@ -1,27 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-        button{
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Nunito:wght@300;500&family=Roboto+Condensed:wght@700&family=Teko:wght@500&family=Ubuntu:wght@400;500&display=swap");
+
+    .main-header {
+      display: grid;
+      grid-template-columns: 0.5fr 1fr 0.8fr;
+      height: 13vh;
+      width: 100%;
+    }
+    .first-header {
+      display: flex;
+      justify-content: space-between;
+    }
+    .options-header {
+      display: flex;
+      gap: 70px;
+      align-items: center;
+      justify-self: center;
+      width: 100%;
+    }
+    .options-header {
+      display: flex;
+    }
+
+    .options-header a {
+      position: relative;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .options-header a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      bottom: -3px;
+      height: 2px;
+      background-color: black;
+      transition: width 300ms ease;
+    }
+
+    .options-header a:hover::after {
+      width: 100%;
+    }
+
+    .options-header a {
+      font-size: 1.2rem;
+      font-family: "Ubuntu", sans-serif;
+    }
+    .cart-signup-header {
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      width: 100%;
+      align-self: center;
+      gap: 50px;
+    }
+    .profile-header {
+      height: 50px;
+      width: 150px;
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 30px;
+      margin-left: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .profile-img {
+      background-color: red;
+      width: 50px;
+      border-radius: 30px;
+      height: 50px;
+    }
+    .Name-profile {
+      color: black;
+      font-family: "Nunito", sans-serif;
+      margin-left: 10px;
+    }
+    .cart-header button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+    #dropdown {
+      position: absolute;
+      width: 150px;
+      background-color: white;
+
+      height: 0;
+      display: none;
+      overflow: hidden;
+      animation: revealDropdown 500ms;
+    }
+
+    #setting-btn {
+      font-size: 1.2rem;
+      font-family: "Ubuntu", sans-serif;
+      cursor: pointer;
+    }
+    #dropdown.active {
+      position: absolute;
+      width: 150px;
+      background-color: white;
+      height: 0;
+      display: flex;
+      overflow: hidden;
+      animation: revealDropdown 300ms;
+      border: 1px solid black;
+      border-radius: 11px;
+    }
+    @keyframes revealDropdown {
+      0% {
+        height: 0;
+      }
+      100% {
+        height: 150px;
+      }
+    }
+
+    #dropdown.active {
+      height: 150px;
+    }
+    .setting-btn {
+      background-color: none;
+      font-size: 1.1rem;
+      font-family: "Nunito", sans-serif;
+    }
+    #dropdown.active ul {
+      list-style: none;
+      padding: 0;
+      padding-left:10px ;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #dropdown.active ul li a{
+        font-family: "Nunito", sans-serif;
+        font-size: 1.1rem;
+        color: black;
+        text-decoration: none;
+    }
+    .line-dropdown-header{
+        width: 100px;
+        height: 1px;
+        background-color: black;
+    }
+    .logo-header{
+        font-size: 1.2rem;
+      font-family: "Ubuntu", sans-serif;
+    }
+    .first-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 20px;
+    }
+    .line-header{
+        height: 50px;
+        width: 3px;
+        background-color: black;
+    }
+    .side-btn-header{
+        display: none;
+    }
+    .sidebar{
+        display: none;
+    }
+    #close-btn{
+        display: none;
+    }
+    @media screen and (max-width: 700px) {
+        .main-header{
+            display: flex;
+            align-items: center;
+        }
+        .first-header{
+            width: 50%;
+        }
+        .line-header{
+            display: none;
+        }
+        .options-header{
+            display: none;
+        }
+        .profile-header{
+            display: none;
+        }
+        #setting-btn{
+            display: none;
+        }
+        .cart-header{
+            display: none;
+        }
+        .side-btn-header{
+            display: flex;
+            
+        }
+        .side-btn-header button{
             height: 50px;
-            width: 150px;
+            background-color: transparent;
+            border: none;
+           
         }
-        button:hover{
-            background-image: url(./200w.gif);
-            background-position: center;
-            background-size: cover;
-            color: white;
+        #sidebar{
+            position: absolute;
+            animation: sidebarclose 400ms;
+            width: 70%;
+            height: 100vh;
         }
-    </style>
-</head>
-<body>
-    <div style="display: flex;justify-content: center;align-items: center;height: 100vh;width: 100%;">
-        <button>
-            CLICK ME
+        #sidebar.active{
+            height: 100vh;
+            width: 70%;
+            animation: sidebar 400ms;
+            background-color: red;
+            z-index: 999;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        #sidebar.close{
+            height: 100vh;
+            width: 0px;
+            animation: sidebarclose 400ms;
+            background-color: red;
+            z-index: 999;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        
+        #close-btn.active{
+            display: inline;
+            background-color: transparent;
+            border: none;
+        }
+        #close-btn.active button{
+            display: inline;
+            background-color: transparent;
+            border: none;
+            position: absolute
+            ;
+            right: 0;
+        }
+        @keyframes sidebar {
+            0% {
+        width: 0;
+      }
+      100% {
+        width: 70%;
+      }
+        }
+        @keyframes sidebarclose {
+            0% {
+        width: 70%;
+      }
+      100% {
+        width: 0px
+      }
+        }
+}
+
+  </style>
+  <body>
+    <div class="main-header">
+      <div class="first-header">
+        <div class="logo-header">IITEFAQ ELECTRONICS</div>
+        <div class="line-header"></div>
+      </div>
+      <div class="options-header">
+        <div><a>about</a></div>
+        <div><a>quote</a></div>
+        <div><a>portal</a></div>
+      </div>
+      <div class="cart-signup-header">
+        <div class="cart-header">
+          <button>
+            <img src="./icons8-cart-48.png" width="40px" height="40px" />
+          </button>
+        </div>
+        <div class="user-setting">
+          <div id="setting-btn" onmouseenter="Dropdown()">options</div>
+          <div id="dropdown" onmouseleave="DropdownHide()">
+            <ul>
+              <li><a href="#">Profile</a></li>
+              <div class="line-dropdown-header"></div>
+              <li><a href="#">Cart</a></li>
+              <div class="line-dropdown-header"></div>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="profile-header">
+          <div class="profile-img"></div>
+          <div class="Name-profile">ICECUBE</div>
+        </div>
+      </div>
+      <div class="side-btn-header" >
+        <button onclick="SideBar()">
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="50px" height="50px" viewBox="0 0 397.000000 288.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,288.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M910 2070 c-11 -11 -20 -27 -20 -35 0 -8 9 -24 20 -35 20 -20 33 -20
+993 -20 864 0 975 2 995 16 27 18 29 55 4 77 -17 16 -100 17 -995 17 -964 0
+-977 0 -997 -20z"/>
+<path d="M923 1550 c-30 -12 -38 -46 -19 -75 l16 -25 984 0 c940 0 984 1 999
+18 23 26 21 58 -5 76 -20 14 -130 16 -988 15 -531 0 -975 -4 -987 -9z"/>
+<path d="M904 995 c-15 -23 -15 -27 0 -50 l16 -25 990 0 c968 0 990 0 1000 19
+14 27 13 47 -6 65 -14 14 -118 16 -999 16 l-985 0 -16 -25z"/>
+</g>
+</svg>
         </button>
+      </div>
     </div>
-</body>
+    <div id="sidebar">
+      <div id="close-btn">
+        <button onclick="CloseSidebar()">
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="40px" height="40px" viewBox="0 0 24.000000 24.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,24.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M40 193 c0 -4 14 -22 32 -40 l32 -33 -34 -35 c-44 -45 -30 -59 15
+-15 l35 34 35 -34 c45 -44 59 -30 15 15 l-34 35 34 35 c44 45 30 59 -15 15
+l-35 -34 -33 32 c-32 31 -47 39 -47 25z"/>
+</g>
+</svg>
+        </button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const sidebar = document.getElementById("sidebar")
+    const dropdown = document.getElementById("dropdown");
+    const closebtn = document.getElementById("close-btn")
+    const Dropdown = () => {
+      dropdown.classList.add("active");
+    };
+    const DropdownHide = () => {
+      dropdown.classList.remove("active");
+    };
+    const SideBar = ()=>{
+        sidebar.classList.remove('close')
+        sidebar.classList.add('active')
+        closebtn.classList.add('active')
+    }
+    const CloseSidebar = ()=>{
+        sidebar.classList.remove('active')
+        sidebar.classList.add('close')
+        closebtn.classList.remove('active')
+    }
+  </script>
 </html>
