@@ -1,0 +1,686 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;500&family=Roboto+Condensed:wght@700&family=Teko:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Nunito:wght@300;500&family=Roboto+Condensed:wght@700&family=Teko:wght@500&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.main-quota{
+    height: auto;
+    padding-bottom : 20px;
+    width: 100%;
+    display: flex;
+}
+.left-quota{
+    display: flex;
+    
+    font-family: 'Nunito', sans-serif;
+    width: 60%;
+    flex-direction: column;
+}
+.file-btn{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+.file-btn button{
+    background-color: transparent;
+    border: none;
+    width: 61%;
+    height: 60px;
+    background-color: black;
+    color: white;
+    font-size: 1.3rem;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 11px;
+}
+.option-quota{
+    background-color: white;
+    border: 1px solid black;
+    width: 130px;
+    height: 50px;
+    transition: all 400ms;
+    
+    border-radius: 7px;
+    display: inline;
+    cursor: pointer;
+}
+.option-quota-drill{
+    background-color: white;
+    border: 1px solid black;
+    width: 100px;
+    height: 50px;
+    transition: all 400ms;
+    display: inline;
+    cursor: pointer;
+    border-radius: 7px;
+}
+.option-quota-drill.active p{
+    display: inline;
+}
+.option-quota:focus{
+    background-color: black;
+    color: white;
+}
+
+.option-quota.active p{
+    display: inline;
+}
+.option-quota.active{
+    background-color: black;
+    color: white;
+    transform: scale(1.07);
+    background-image: url(./200w.gif);
+    background-size: cover;
+    background-position: center;
+}
+.option-quota-drill p{
+    display: none;
+}
+.option-quota-drill.active{
+    background-color: black;
+    color: white;
+    transform: scale(1.07);
+    background-image: url(./200w.gif);
+    background-size: cover;
+    background-position: center;
+}
+.option-quota p{
+    display: none;
+}
+.input-dimension{
+    width: 50px;
+    height: 40px;
+    padding-left: 30px;
+    margin-right: 10px;
+    border: 1px solid black;
+    border-radius: 7px;
+    outline: none;
+}
+#error-msg-dimension{
+    display: none;
+    color: red;
+    font-style: bold;
+}
+#error-msg-quantity{
+    display: none;
+    color: red;
+    font-style: bold;
+}
+.input-quantity{
+    width: 50px;
+    height: 40px;
+    padding-left: 30px;
+    margin-right: 10px;
+    border: 1px solid black;
+    border-radius: 7px;
+    outline: none;
+}
+#Mask-Color{
+    display: flex;
+    gap: 30px;
+}
+#Drill_bit_diameter{
+    display: none;
+}
+#Copper_Thickness_bakellite{
+    display: none;
+}
+#Copper_Thickness_Fr4{
+    display: none;
+}
+.material{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.layers{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.info-pcb{
+    background-color: grey;
+    border: 1px solid black;
+    color: white;
+    border-radius: 50px;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    margin-right: 10px;
+    position: absolute;
+}
+.dimensions{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.quantity{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.Delivery-format{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.Isolation{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.masking{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+#Mask-Color{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.SilkScreen{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.SurfaceFinish{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.Drill_Nature{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.Flying_probe_test{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.AiTest{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.ManualTest{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+#Copper_Thickness_bakellite{
+    display: flex;
+    align-items: center;
+    display: none;
+    gap: 20px;
+    margin-top: 20px;
+}
+#Drill_bit_diameter{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+#Copper_Thickness_Fr4{
+    display: flex;
+    align-items: center;
+    display: none;
+    gap: 20px;
+    margin-top: 20px;
+}
+h3{
+    width: 180px;
+    
+    font-family: 'Roboto Condensed', sans-serif;
+}
+h1{
+    
+    font-family: 'Roboto Condensed', sans-serif;
+}
+h4{
+    
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#Drill_bit_diameter{
+    display: none;
+}
+.container-right{
+    width: 70%;
+    gap: 20px;
+    font-family: 'Nunito', sans-serif;
+    height: 70vh;
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 30px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+}
+.chargesDetail{
+    display: flex;
+    flex-direction: column;
+}
+.ChargeDetail-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.Charge-grid-items{
+
+    margin-top: 5px;
+    align-self: center;
+}
+#specialOfferValue{
+    justify-self: right;
+}
+#viaCoveringValue{
+    justify-self: right;
+}
+#SurfaceFinishValue{
+    justify-self: right;
+}
+.BuildTime-flex{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.BuildTime-Grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr)
+    ;
+    grid-template-rows: repeat(2,1fr);
+    column-gap: 20px;
+    row-gap: 10px;
+}
+.seconddaysValue{
+    justify-self: right;
+}
+.firstdaysvalue{
+    justify-self: right;
+}
+.calculatedPrice{
+    display: flex;
+    
+    justify-content:space-between;
+}
+.CheckoutBtn{
+    display: flex;
+    justify-content: center;
+}
+.CheckoutBtn-btn{
+    height: 50px;
+    width: 80%;
+    border: 1px solid black;
+    border-radius: 11px;
+    background-color: black;
+    color: white;
+    outline: none;
+}
+
+.line{
+    height: 1px;
+    background-color: grey;
+}
+.file-btn-post{
+    background-color: black
+    ;
+    color: white;
+    
+}
+
+.hover-container {
+    width: 150px;
+    height: 100px;
+    border: 1px solid black;
+    z-index: 9999;
+    position: relative;
+    background-color: white;
+    left: 24px;
+    top: -10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+    border-radius: 5px;
+}
+
+.hover-container.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .right-quota{
+      width: 40%;
+  }
+#electric{
+    width: 240px;
+}
+/* BUTTON HOVER */
+#electric2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: blur(1px);
+    background-color: rgba(106, 123, 252, 0.414);
+    border: 2px solid rgb(125, 140, 255);
+    color:  rgb(182, 191, 255);
+    /* display: none; */
+    z-index: -1;
+  }
+ 
+  @keyframes dash {
+  to {
+  stroke-dashoffset: 0;
+  }
+  }
+
+  .yellow{
+    width: 90%;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 1000;
+    animation: dash 1s linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+
+
+  }
+
+  .blue{
+    width: 90%;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 1000;
+    animation: dash 1.2s linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+   
+  }
+
+  #y1{
+    top: -115%;
+    left: -5%;
+    filter: blur(.5px);
+
+  }
+
+  #y2{
+    width: 120%;
+    left: -10%;
+    top: -155%;
+    filter: brightness(1);
+  }
+
+  #b1{
+    left: -5%;
+    top: -125%;
+    /* filter: blur(.5px) */
+  }
+
+  #b2{
+    left: -10%;
+    top: -165%;
+    width: 120%
+    /* filter: blur(.5px) */
+  }
+
+  @keyframes dot1 {
+    from{
+      bottom: 0%;
+      left: 10%;
+      opacity: 1;
+    }
+    to{
+      bottom: -30%;
+      left: 0%;
+      opacity: 0;
+    }
+  }
+  @keyframes dot2 {
+    from{
+      top: 0%;
+      left: 30%;
+      opacity: 1;
+    }
+    to{
+      top: -30%;
+      left: 40%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes dot3 {
+    from{
+      top: 0%;
+      left: 80%;
+      opacity: 1;
+    }
+    to{
+      top: -30%;
+      left: 80%;
+      opacity: 0;
+    }
+  }
+  @keyframes dot4 {
+    from{
+      bottom: 20%;
+      left: 100%;
+      opacity: 1;
+    }
+    to{
+      bottom: 30%;
+      left: 120%;
+      opacity: 0;
+    }
+  }
+  .buttonHolder{
+    position: relative;
+  }
+
+
+
+  .electric{
+    padding: 20px 50px;
+    border-radius: 100px;
+    cursor: pointer;
+    background-color: black;
+    border: 2px solid black;
+    color: white;
+    position: relative;
+    filter: blur(0px);
+  }
+
+  .part{
+    content: ' ';
+    width: 3px;
+    height: 3px;
+    border-radius: 5px;
+    background-color: rgb(183, 226, 255);
+    z-index: 2;
+    position: absolute;
+    filter: blur(1px);
+    display: none;
+  }
+
+  #part1{
+    animation: dot1;
+    transform-origin: center;
+    animation-duration: 1.5s;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-iteration-count: infinite;
+  }
+  #part2{
+    animation: dot2;
+    transform-origin: center;
+    animation-duration: 1.6s;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-iteration-count: infinite;
+  }
+  #part3{
+    animation: dot3;
+    transform-origin: center;
+    animation-duration: 1.5s;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-iteration-count: infinite;
+  }
+
+  #part4{
+    animation: dot4;
+    transform-origin: center;
+    animation-duration: 1.5s;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-iteration-count: infinite;
+  }
+
+  .buttonHolder{
+    width: max-content;
+    max-height: 20px;
+  }
+
+  .hide{
+    opacity: 0;
+  }
+ 
+  #electric:hover + .hide{
+    opacity: 1 ;
+  }
+  #electric:hover  .hide{
+    opacity: 1 ;
+  }
+
+
+  .electric:hover  .part{
+    display: flex;
+  }
+  .btn-part{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+.Top-banner-quote{
+    height: 270px;
+    background-color: black;
+    display: flex;
+}
+/* // animations */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+svg{
+    position: absolute;
+}
+@keyframes fill {
+  from {
+    fill-opacity: 0;
+  }
+  to {
+    fill-opacity: 1;
+  }
+}
+
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.circuit-no-fill,
+.circuits,
+.circuit-top-group {
+  margin: 20px;
+  width: 100px;
+}
+
+.circuits {
+  
+  path {
+    fill: #3676e8;
+    stroke: #3676e8;
+    stroke-width: 2px;
+    
+    fill-opacity: 0;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation-name: draw, fill;
+    animation-fill-mode: forwards;
+    animation-duration: 20s, 3s;
+    animation-delay: 1s, 9s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite, initial;
+  }
+}
+
+.circuit-no-fill {
+  fill: none;
+  transform: rotate(-90deg);
+  stroke: white;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  stroke-width: 2px;
+  stroke-miterlimit: 10;
+  
+  animation-delay: 1s;
+  animation-direction: alternate;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  animation-name: dash;
+  animation-timing-function: ease-in-out;
+}
+
+.circuit-bottom-group {
+  fill: none;
+  stroke: black;
+  stroke-width: 2px;
+  width: 135px;
+}
+
+.circuit-top-group {
+  fill: none;
+  stroke: #3676e8;
+  stroke-width: 2px;
+  width: 115px;
+}
+.btn-part{
+    height: 50px;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 11px;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 400ms;
+    padding-top: 10px;
+}
+.btn-part:hover{
+    background-image: url(./200w.gif);
+    background-size: cover;
+    background-position: center;
+}

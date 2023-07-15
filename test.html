@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./portal.css" />
+    <title>Document</title>
+    <script src="./Header.js" type="text/javascript" defer></script>
+    <script src="./Footer.js" type="text/javascript" defer></script>
+    <script src="./account_details.js" type="text/javascript" defer></script>
+    <script src="./payment_method.js" type="text/javascript" defer></script>
+    <script src="./personal_details.js" type="text/javascript" defer></script>
+    <script src="./support_tickets.js" type="text/javascript" defer></script>
+    <script src="./your_order.js" type="text/javascript" defer></script>
+  </head>
+  <body>
+    <header-component></header-component>
+    <div class="portal-main">
+      <div class="side-bar">
+        <div class="tabs">
+          <div class="tabs-item" id="personal_info">
+            personal information
+          </div>
+          <div class="tabs-item" id="account_details">
+            account details
+          </div>
+          <div class="tabs-item" id="payment_details">
+            payment method
+          </div>
+          <div class="tabs-item" id="your_orders">
+            your orders
+          </div>
+          <div class="tabs-item" id="support_tickets">
+            support tickets
+          </div>
+        </div>
+      </div>
+      <div class="tabs-info">
+        <!-- here it will render different js component according to the button pressed  -->
+      </div>
+    </div>
+    <footer-component></footer-component>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var tabItems = document.getElementsByClassName("tabs-item");
+        var tabsInfoContainer = document.querySelector(".tabs-info");
+
+        for (var i = 0; i < tabItems.length; i++) {
+          tabItems[i].addEventListener("click", function() {
+            console.log("CLICKED");
+            var tabId = this.id;
+            tabsInfoContainer.innerHTML = "";
+
+            switch (tabId) {
+              case "personal_info":
+                var personalDetailsComponent = document.createElement("personal-details");
+                tabsInfoContainer.appendChild(personalDetailsComponent);
+                break;
+              case "account_details":
+                var accountDetailsComponent = document.createElement("account-details");
+                tabsInfoContainer.appendChild(accountDetailsComponent);
+                break;
+              case "payment_details":
+                var paymentMethodComponent = document.createElement("payment-method");
+                tabsInfoContainer.appendChild(paymentMethodComponent);
+                break;
+              case "your_orders":
+                var yourOrdersComponent = document.createElement("your-orders");
+                tabsInfoContainer.appendChild(yourOrdersComponent);
+                break;
+              case "support_tickets":
+                var supportTicketsComponent = document.createElement("support-tickets");
+                tabsInfoContainer.appendChild(supportTicketsComponent);
+                break;
+              default:
+                break;
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

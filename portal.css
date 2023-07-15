@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;500&family=Roboto+Condensed:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.portal-main{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.side-bar{
+    width: 15%;
+    height: 92vh;
+    background-color: white;
+    border-right: 1px solid black;
+}
+.tabs-info{
+    height: 100vh;
+    width: 100%;
+}
+.tabs-item{
+    flex-direction: column;
+gap: 30px;
+height: 50px;
+background: white;
+border: 2px solid white;
+border-radius: 11px;
+display: flex;
+align-items: center;
+justify-content: center;
+
+font-family: 'Nunito', sans-serif;
+transition: all 400ms;
+cursor: pointer;
+}
+.side-bar{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 30px;
+}
+.tabs{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 30px;
+}
+.tabs-item:hover{
+    background-color: gray;
+    color: white;
+}
+.tabs-info{
+    margin-top: 20px;
+    padding-top: 30px;
+    padding-left: 60px;
+    z-index: -9;
+
+}
+.tabs-info h1{
+    font-family: 'Roboto Condensed', sans-serif;
+    padding-top: 10px;
+}
+.main-tab-container{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    row-gap: 50px;
+}
+.main-tab-container h4{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.main-tab-container p{
+    font-size: 1.1rem;
+    font-family: 'Nunito', sans-serif;
+}
+.tabs-item.active {
+    background-color: grey;
+    color: white;
+    
+  }

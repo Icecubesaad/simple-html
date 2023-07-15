@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;500&family=Roboto+Condensed:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.left-signup{
+    width: 45%;
+    background-color: red;
+}
+.right-signup{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px;
+}
+.contact-body{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+.input-group{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.input-field{
+    width: 300px;
+    height: 45px;
+    border: 1px solid grey;
+    border-radius: 11px;
+    padding-left: 10px;
+    padding-top: 1px;
+    padding-right: 1px;
+    outline: none;
+    font-size: 1.1rem;
+    font-family: 'Nunito', sans-serif;
+}
+.input-field::placeholder{
+    color: black;
+}
+.heading-right{
+    margin-bottom: 30px;
+    font-family: 'Nunito', sans-serif;
+}
+.sub-heading{
+    width: 300px;
+    font-family: 'Nunito', sans-serif;
+
+}
+.left-other{
+    display: flex;
+}
+.left-other p{
+    font-family: 'Nunito', sans-serif;
+    margin-right: 3px;
+}
+.other-signup{
+    margin-top: 20px;
+    width: 46%;
+    display: flex;
+    justify-content: space-between;
+}
+.other-signup p a{
+    color: blue;
+    font-family: 'Nunito', sans-serif;
+}
+.sign-up-btn{
+    width: 200px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border: none;
+    transition: all 500ms;
+    border-radius: 11px;
+    font-family: 'Nunito', sans-serif;
+}
+.button-signup{
+    margin-top: 20px;
+}
+.sign-up-btn:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+.text-other{
+    display: flex;
+    align-items: center;
+    color: grey;
+    font-family: 'Nunito', sans-serif;
+    justify-content: center;
+}
+.line{
+    height: 2px;
+    background-color: grey;
+    width: 60px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.other-methods{
+    margin-top: 20px;
+
+}
+.google{
+    width: 300px;
+    margin-top: 20px;
+    height: 55px;
+    background-color: white;
+    color: black;
+    border: 1px solid rgb(120, 168, 230);
+    transition: all 500ms;
+    border-radius: 11px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Nunito', sans-serif;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.google p{
+    margin-left: 40px;
+}
+#pass{
+    width: 250px;
+}
+#hide-btn
+{
+    height: 50px;
+    width: 50px;
+    font-family: 'Nunito', sans-serif;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 11px;
+    transition: 500ms;
+    cursor: pointer;
+}
+#hide-btn:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    
+}

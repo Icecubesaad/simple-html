@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./portal.css" />
+    <title>Document</title>
+    <script src="./Header.js" type="text/javascript" defer></script>
+    <script src="./Footer.js" type="text/javascript" defer></script>
+    <script src="./account_details.js" type="text/javascript" defer></script>
+    <script src="./portalScript.js" ></script>
+    <script src="./payment_method.js" type="text/javascript" defer></script>
+    <script src="./personal_details.js" type="text/javascript" defer></script>
+    <script src="./support_tickets.js" type="text/javascript" defer></script>
+    <script src="./your_order.js" type="text/javascript" defer></script>
+  </head>
+  <body>
+    <header-component></header-component>
+    <div class="portal-main">
+      <div class="side-bar">
+        <div class="tabs">
+          <a href="./personal_details.html">
+            <div class="tabs-item" id="personal_info" onclick="changeTab('personal_info')">personal information</div>
+          </a>
+          <a href="./account_details.html">
+            <div class="tabs-item" id="account_details" onclick="changeTab('account_details')">account details</div>
+          </a>
+          <a href="./payment_method.html">
+            <div class="tabs-item" id="payment_method" onclick="changeTab('payment_method')">payment method</div>
+          </a>
+          <a href="./your_order.html">
+            <div class="tabs-item active" id="your_orders" onclick="changeTab('your_orders')">your orders</div>
+          </a>
+          <a href="./support_tickets.html">
+            <div class="tabs-item" id="support_tickets" onclick="changeTab('support_tickets')">support tickets</div>
+          </a>
+        </div>
+      </div>
+      <div class="tabs-info">
+        <h1>Your Orders</h1>
+        <div class="main-tab-container">
+        <div>
+        <h4>Name</h4>
+        <p>ICECUBE</p>
+      </div>
+      <div>
+        <h4>Email</h4>
+        <p>hello@gmail.com</p>
+      </div>
+      <div>
+        <h4>Phone Number</h4>
+        <p>+000000000000</p>
+      </div>
+      <div>
+        <h4>Address</h4>
+        <P>Johar town t#49</P>
+      </div>
+    </div>
+      </div>
+    </div>
+    <footer-component></footer-component>
+  </body>
+</html>

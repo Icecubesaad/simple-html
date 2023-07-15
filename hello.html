@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+    <script src="./Header.js" type="text/javascript" defer></script>
+    <script src="./Footer.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="./contactstyle.css">
+</head>
+<body>
+    <header-component></header-component>
+    <div class="body-contact">
+        <h1>Contact Form</h1>
+        <div class="grid">
+            <div class="grid-component">
+                <h4 class="heading">Name</h4>
+                <input class="input-form" placeholder="enter your Name" />
+            </div>
+            <div class="grid-component">
+                <h4 class="heading">Email</h4>
+                <input class="input-form" placeholder="enter your email" /></div>
+            <div class="grid-component">
+                <h4 class="heading">Company name</h4>
+                <input class="input-form" placeholder="enter your Company name" /></div>
+            <div class="grid-component">
+                <h4 class="heading">Subject</h4>
+                <input class="input-form" placeholder="enter the subject" /></div>
+        </div>
+        <h4 class="textareahead">
+            Address
+        </h4>
+        <input class="input-form-adress" placeholder="enter your adress" />
+        <h4 class="textareahead">
+            Details
+        </h4>
+        <textarea id="myTextArea" placeholder="Enter Something">     </textarea>
+        <a href="#"><button class="btn-post">
+            Submit
+        </button></a>
+    </div>
+    <footer-component></footer-component>
+</body>
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var textarea = document.getElementById('myTextArea');
+      textarea.value = '';
+    });
+  </script>
+  
+</html>
